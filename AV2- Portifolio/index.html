@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weverton Kauã | Portfólio Desenvolvedor</title>
+  <meta name="description" content="Portfólio profissional de Weverton Kauã, estudante e desenvolvedor focado em oportunidades de estágio na área de Tecnologia.">
+  
+  <!-- CSS Externo -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Link direto para Acessibilidade -->
+  <a href="#main-content" class="skip-to-content">Pular para o conteúdo principal</a>
+
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#home" class="logo" aria-label="Página inicial de Weverton Kauã">
+        &lt;WevertonKauã <span class="accent">/&gt;</span>
+      </a>
+
+      <div class="header-actions">
+        <!-- Botão Alternar Tema -->
+        <button id="theme-toggle" class="icon-btn" aria-label="Alternar entre modo claro e escuro">
+          <span id="theme-icon">🌙</span>
+        </button>
+
+        <!-- Botão Menu Hambúrguer -->
+        <button id="menu-btn" class="hamburger-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="primary-nav">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+
+      <!-- Navegação Principal -->
+      <nav id="primary-nav" class="nav-menu" aria-label="Navegação Principal">
+        <ul>
+          <li><a href="#home" class="nav-link active">Início</a></li>
+          <li><a href="#about" class="nav-link">Sobre Mim</a></li>
+          <li><a href="#skills" class="nav-link">Habilidades</a></li>
+          <li><a href="#projects" class="nav-link">Projetos</a></li>
+          <li><a href="#journal" class="nav-link">Diário de Bordo</a></li>
+          <li><a href="#contact" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content">
+
+    <!-- Seção Início -->
+    <section id="home" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-text hero-copy">
+          <p id="dynamic-greeting" class="greeting-badge">Carregando saudação...</p>
+          <h1 class="hero-title">
+            Olá, eu sou <span class="highlight">Weverton Kauã</span>
+          </h1>
+          <h2 class="hero-subtitle">Desenvolvedor &amp; Estudante de Tecnologia</h2>
+          <p class="hero-description">
+            Buscando minha primeira oportunidade de <strong>Estágio em TI</strong>. Focado na criação de código limpo, estruturas de dados eficientes, automação e interfaces web acessíveis.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+            <a href="#contact" class="btn btn-secondary">Falar Comigo</a>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper hero-visual">
+          <div class="avatar-border">
+            <img src="img/avatar.png" alt="Foto de perfil profissional de Weverton Kauã" class="avatar-img" onerror="this.src='https://via.placeholder.com/280x280/1e293b/38bdf8?text=Weverton+Kau%C3%A3'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Sobre Mim -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title"><span class="accent">01.</span> Sobre Mim</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Quem eu sou</h3>
+            <p>
+              Sou um entusiasta de tecnologia e lógica de programação em constante aprendizado. Tenho me dedicado intensamente ao estudo de desenvolvimento de software, algoritmos, lógica computacional e física aplicada à computação.
+            </p>
+            <p>
+              Adoro resolver problemas através do código — desde scripts em Python para automatizar tarefas financeiras ou estatísticas até o desenvolvimento de páginas web estruturadas e semânticas.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3>Objetivos Profissionais</h3>
+            <p>
+              Estou à procura de uma <strong>oportunidade de estágio em TI / Desenvolvimento de Software</strong>, onde eu possa aplicar meus conhecimentos em lógica de programação, Python, HTML/CSS e JavaScript na resolução de desafios reais.
+            </p>
+            <p>
+              Meu objetivo é evoluir lado a lado com uma equipe experiente, contribuir com soluções funcionais e construir uma carreira sólida em tecnologia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Habilidades -->
+    <section id="skills" class="section bg-alt">
+      <div class="container">
+        <h2 class="section-title"><span class="accent">02.</span> Habilidades Tecnológicas</h2>
+        <p class="section-subtitle">Tecnologias que domino e venho praticando nos meus estudos diários:</p>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🐍</span>
+              <h3>Python</h3>
+            </div>
+            <p class="skill-desc">Estruturas de dados (dicionários, listas), cálculos matemáticos e lógicos, automação e análise de dados.</p>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🌐</span>
+              <h3>HTML5 Semântico</h3>
+            </div>
+            <p class="skill-desc">Estruturação semântica de páginas, acessibilidade (WCAG/ARIA) e boas práticas de SEO.</p>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🎨</span>
+              <h3>CSS3 Moderno</h3>
+            </div>
+            <p class="skill-desc">Layouts responsivos com Flexbox e CSS Grid, Variáveis CSS, animações e suporte a modo claro/escuro.</p>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 75%"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">⚡</span>
+              <h3>JavaScript (ES6+)</h3>
+            </div>
+            <p class="skill-desc">Manipulação de DOM, tratamento de eventos, consumo de APIs, validação de formulários e lógica JS puro.</p>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 70%"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">🐙</span>
+              <h3>Git &amp; GitHub</h3>
+            </div>
+            <p class="skill-desc">Controle de versão, commits estruturados e hospedagem de projetos com GitHub Pages.</p>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 75%"></div></div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <span class="skill-icon">📐</span>
+              <h3>Lógica &amp; Algoritmos</h3>
+            </div>
+            <p class="skill-desc">Resolução de problemas, estruturas condicionais e de repetição, fluxogramas e modelagem de dados.</p>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Projetos -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title"><span class="accent">03.</span> Projetos Desenvolvidos</h2>
+        <p class="section-subtitle">Aplicações práticas e autorais criadas durante a minha jornada de estudos:</p>
+
+        <!-- Filtros dos Projetos -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+          <button class="filter-btn" data-filter="web">HTML/CSS/JS</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Projeto 1 -->
+          <article class="project-card" data-category="python">
+            <div class="project-img-holder">
+              <img src="img/projeto1.jpg" alt="Preview da calculadora financeira em Python" onerror="this.src='https://via.placeholder.com/400x220/0f172a/38bdf8?text=Calculadora+Financeira+Python'">
+              <span class="project-tag">Python</span>
+            </div>
+            <div class="project-content">
+              <h3>Calculadora Financeira e Descontos</h3>
+              <p>
+                Script em Python desenvolvido para automatizar o cálculo de salários líquidos, deduções tributárias e simulador de rendimento e eficiência de combustível veicular.
+              </p>
+              <ul class="project-techs">
+                <li>Python 3</li>
+                <li>Lógica Math</li>
+                <li>Estruturas de Dados</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/wkdospredio" target="_blank" rel="noopener noreferrer" class="btn-link">Repositório GitHub &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 2 -->
+          <article class="project-card" data-category="python">
+            <div class="project-img-holder">
+              <img src="img/projeto2.jpg" alt="Preview do gerenciador escolar em Python" onerror="this.src='https://via.placeholder.com/400x220/0f172a/38bdf8?text=Gerenciador+de+Alunos+Python'">
+              <span class="project-tag">Python</span>
+            </div>
+            <div class="project-content">
+              <h3>Gerenciador de Registros Acadêmicos</h3>
+              <p>
+                Sistema em Python para cadastro e gestão de registros de alunos utilizando estruturas de dicionários encadeados, com rotinas para cálculo de médias e verificação de situação.
+              </p>
+              <ul class="project-techs">
+                <li>Python</li>
+                <li>Dicionários</li>
+                <li>Coleções</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/wkdospredio" target="_blank" rel="noopener noreferrer" class="btn-link">Repositório GitHub &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 3 -->
+          <article class="project-card" data-category="web">
+            <div class="project-img-holder">
+              <img src="img/projeto3.jpg" alt="Preview do Portfólio Profissional Web" onerror="this.src='https://via.placeholder.com/400x220/0f172a/38bdf8?text=Portf%C3%B3lio+Web+Puro'">
+              <span class="project-tag">HTML / CSS / JS</span>
+            </div>
+            <div class="project-content">
+              <h3>Portfólio Web Pessoal e Responsivo</h3>
+              <p>
+                Site interativo construído do zero com HTML5 semântico, CSS3 (Grid e Flexbox) e JavaScript puro, contando com alternador de temas, formulário seguro e acessibilidade total.
+              </p>
+              <ul class="project-techs">
+                <li>HTML5</li>
+                <li>CSS3 (Grid/Flex)</li>
+                <li>JavaScript Vanilla</li>
+              </ul>
+              <div class="project-links">
+                <a href="#home" class="btn-link">Ver Demonstração &rarr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Diário de Bordo -->
+    <section id="journal" class="section bg-alt">
+      <div class="container">
+        <h2 class="section-title"><span class="accent">04.</span> Diário de Bordo</h2>
+        <p class="section-subtitle">Registro das etapas do processo de desenvolvimento individual do projeto:</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-badge">1</div>
+            <div class="timeline-content">
+              <h3>Etapa 1: Planejamento &amp; Esboço Wireframe</h3>
+              <p><strong>Atividade:</strong> Definição da estrutura semântica das seções (Cabeçalho, Início, Sobre Mim, Habilidades, Projetos, Contato e Rodapé) e planejamento visual dos componentes.</p>
+              <p><strong>Dificuldade:</strong> Organizar todas as informações de forma clara mantendo a acessibilidade.</p>
+              <p><strong>Solução:</strong> Separação em blocos bem definidos utilizando tags HTML5 semânticas e grid layout.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-badge">2</div>
+            <div class="timeline-content">
+              <h3>Etapa 2: Estruturação do HTML Semântico</h3>
+              <p><strong>Atividade:</strong> Criação do arquivo <code>index.html</code> com tags adequadas e atributos ARIA.</p>
+              <p><strong>Dificuldade:</strong> Garantir que a estrutura fosse compreensível para leitores de tela sem redundâncias.</p>
+              <p><strong>Solução:</strong> Adição de atalho para o conteúdo principal, <code>aria-labels</code> e textos alternativos descritivos em todas as imagens.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-badge">3</div>
+            <div class="timeline-content">
+              <h3>Etapa 3: Estilização com CSS3, Flexbox &amp; Grid</h3>
+              <p><strong>Atividade:</strong> Criação das regras em <code>css/style.css</code>, aplicando design responsivo, variáveis CSS para tema Claro/Escuro e animações.</p>
+              <p><strong>Dificuldade:</strong> Manter a leitura e o contraste adequados em ambos os temas (Dark/Light Mode).</p>
+              <p><strong>Solução:</strong> Uso de variáveis no <code>:root</code> e verificação das cores via diretrizes do WCAG de contraste de cores.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-badge">4</div>
+            <div class="timeline-content">
+              <h3>Etapa 4: Interatividade com JavaScript Puro</h3>
+              <p><strong>Atividade:</strong> Desenvolvimento das funções do menu hambúrguer, saudação baseada no horário, alternador de temas, persistência no <code>localStorage</code> e validações de formulário.</p>
+              <p><strong>Dificuldade:</strong> Tratar as validações em tempo real e o consentimento de dados sem o uso de bibliotecas de terceiros.</p>
+              <p><strong>Solução:</strong> Manipulação de eventos nativos como <code>input</code>, <code>submit</code> e escuta dos checkboxes com feedback imediato ao usuário.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title"><span class="accent">05.</span> Entre em Contato</h2>
+        <p class="section-subtitle">Tem uma vaga de estágio ou deseja conversar sobre projetos? Envie uma mensagem!</p>
+
+        <div class="contact-wrapper">
+          <form id="contact-form" class="contact-form" novalidate>
+            
+            <div class="form-group">
+              <label for="name">Nome Completo *</label>
+              <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
+              <span class="error-msg" id="name-error">Por favor, informe seu nome.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail Profissional *</label>
+              <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+              <span class="error-msg" id="email-error">Por favor, insira um e-mail válido.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Sua Mensagem *</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Escreva aqui como posso ajudar ou detalhes da vaga..."></textarea>
+              <span class="error-msg" id="message-error">A mensagem precisa ter pelo menos 10 caracteres.</span>
+            </div>
+
+            <!-- Checkbox LGPD / Consentimento -->
+            <div class="form-group checkbox-group">
+              <label class="checkbox-container">
+                <input type="checkbox" id="lgpd-consent" name="lgpd-consent" required>
+                <span class="checkmark"></span>
+                <span class="checkbox-text">
+                  Concordo com o envio e processamento dos meus dados pessoais exclusivamente para fins de contato profissional (LGPD).
+                </span>
+              </label>
+              <span class="error-msg" id="lgpd-error">É necessário aceitar o consentimento para prosseguir.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
+
+            <!-- Feedback de Status -->
+            <div id="form-status" class="form-status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container footer-container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div class="footer-info">
+        <p>&copy; <span id="current-year"></span> <strong>Weverton Kauã Ferreira de Lima</strong>. Todos os direitos reservados.</p>
+        <p class="footer-sub">Desenvolvido com HTML5, CSS3 e JavaScript Puros (Sem Frameworks).</p>
+      </div>
+
+      <div class="footer-actions">
+        <a href="#home" class="back-to-top" aria-label="Voltar para o topo da página">
+          Voltar ao topo &uarr;
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Externo -->
+  <script src="js/script.js"></script>
+</body>
+</html>
