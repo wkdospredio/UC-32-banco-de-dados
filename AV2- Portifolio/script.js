@@ -1,181 +1,363 @@
+
 /**
- * Portfólio Profissional - Weverton Kauã
- * JavaScript Vanilla (Sem bibliotecas externas)
+ * ============================================================
+ * PORTFÓLIO PROFISSIONAL — WEVERTON KAUÃ
+ * JavaScript Vanilla | Sem bibliotecas externas
+ * ============================================================
+ *
+ * Funcionalidades:
+ * - Saudação dinâmica conforme o horário
+ * - Tema claro e escuro com preferência salva
+ * - Menu responsivo com acessibilidade
+ * - Filtros de projetos com estado acessível
+ * - Validação do formulário de contato
+ * - Atualização automática do ano
+ * - Código defensivo para evitar erros no console
  */
 
+'use strict';
+
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* ==========================================================================
-     1. SAUDAÇÃO DINÂMICA
-     ========================================================================== */
-  function setDynamicGreeting() {
-    const greetingElement = document.getElementById('dynamic-greeting');
-    if (!greetingElement) return;
-
-    const currentHour = new Date().getHours();
-    let greetingText = '';
-
-    if (currentHour >= 5 && currentHour < 12) {
-      greetingText = '☀️ Bom dia! Bem-vindo(a) ao meu portfólio';
-    } else if (currentHour >= 12 && currentHour < 18) {
-      greetingText = '🌤️ Boa tarde! Bem-vindo(a) ao meu portfólio';
-    } else {
-      greetingText = '🌙 Boa noite! Bem-vindo(a) ao meu portfólio';
-    }
-
-    greetingElement.textContent = greetingText;
-  }
-
-  /* ==========================================================================
-     2. MODO CLARO / ESCURO (DARK / LIGHT THEME) + LOCALSTORAGE
-     ========================================================================== */
-  function initThemeToggle() {
-    const themeBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    
-    if (savedTheme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-      themeIcon.textContent = '☀️';
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      themeIcon.textContent = '🌙';
-    }
-
-    themeBtn.addEventListener('click', () => {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      
-      if (isLight) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'dark');
-        themeIcon.textContent = '🌙';
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-        themeIcon.textContent = '☀️';
-      }
-    });
-  }
-
-  /* ==========================================================================
-     3. MENU HAMBÚRGUER (MOBILE)
-     ========================================================================== */
-  function initMobileMenu() {
-    const menuBtn = document.getElementById('menu-btn');
-    const primaryNav = document.getElementById('primary-nav');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    menuBtn.addEventListener('click', () => {
-      const isOpen = primaryNav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', isOpen);
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        primaryNav.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  /* ==========================================================================
-     4. FILTRO DE PROJETOS
-     ========================================================================== */
-  function initProjectFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-
-        projectCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (filterValue === 'all' || category === filterValue) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
-
-  /* ==========================================================================
-     5. VALIDAÇÃO DO FORMULÁRIO DE CONTATO (COM LGPD)
-     ========================================================================== */
-  function initFormValidation() {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
-
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-    const lgpdConsent = document.getElementById('lgpd-consent');
-    const statusDiv = document.getElementById('form-status');
-
-    function validateEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    function checkInput(input, condition) {
-      const parent = input.closest('.form-group');
-      if (!condition) {
-        parent.classList.add('invalid');
-        return false;
-      } else {
-        parent.classList.remove('invalid');
-        return true;
-      }
-    }
-
-    nameInput.addEventListener('input', () => checkInput(nameInput, nameInput.value.trim().length > 2));
-    emailInput.addEventListener('input', () => checkInput(emailInput, validateEmail(emailInput.value.trim())));
-    messageInput.addEventListener('input', () => checkInput(messageInput, messageInput.value.trim().length >= 10));
-    lgpdConsent.addEventListener('change', () => checkInput(lgpdConsent, lgpdConsent.checked));
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const isNameValid = checkInput(nameInput, nameInput.value.trim().length > 2);
-      const isEmailValid = checkInput(emailInput, validateEmail(emailInput.value.trim()));
-      const isMessageValid = checkInput(messageInput, messageInput.value.trim().length >= 10);
-      const isLgpdValid = checkInput(lgpdConsent, lgpdConsent.checked);
-
-      if (isNameValid && isEmailValid && isMessageValid && isLgpdValid) {
-        statusDiv.className = 'form-status success';
-        statusDiv.textContent = '✅ Mensagem enviada com sucesso! Em breve entrarei em contato.';
-        form.reset();
-
-        setTimeout(() => {
-          statusDiv.style.display = 'none';
-        }, 5000);
-      } else {
-        statusDiv.className = 'form-status error';
-        statusDiv.textContent = '❌ Por favor, preencha corretamente todos os campos obrigatórios.';
-      }
-    });
-  }
-
-  /* ==========================================================================
-     6. ANO AUTOMÁTICO NO RODAPÉ
-     ========================================================================== */
-  function setCurrentYear() {
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-  }
-
-  // Inicialização de todas as funções
-  setDynamicGreeting();
+  // Inicializa todas as funcionalidades do portfólio.
+  initDynamicGreeting();
   initThemeToggle();
   initMobileMenu();
   initProjectFilters();
   initFormValidation();
-  setCurrentYear();
+  initCurrentYear();
 });
+
+/* ============================================================
+   1. SAUDAÇÃO DINÂMICA
+   ============================================================ */
+
+function initDynamicGreeting() {
+  const greetingElement = document.getElementById('dynamic-greeting');
+
+  if (!greetingElement) return;
+
+  const hour = new Date().getHours();
+
+  let greeting;
+
+  if (hour >= 5 && hour < 12) {
+    greeting = 'Bom dia! Bem-vindo(a) ao meu portfólio.';
+  } else if (hour >= 12 && hour < 18) {
+    greeting = 'Boa tarde! Bem-vindo(a) ao meu portfólio.';
+  } else {
+    greeting = 'Boa noite! Bem-vindo(a) ao meu portfólio.';
+  }
+
+  greetingElement.textContent = greeting;
+}
+
+/* ============================================================
+   2. TEMA CLARO E ESCURO
+   ============================================================ */
+
+function initThemeToggle() {
+  const themeButton = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const root = document.documentElement;
+
+  if (!themeButton) return;
+
+  // Lê a preferência salva sem interromper o site caso
+  // o navegador bloqueie o armazenamento local.
+  function getSavedTheme() {
+    try {
+      const savedTheme = localStorage.getItem('theme');
+
+      if (savedTheme === 'light' || savedTheme === 'dark') {
+        return savedTheme;
+      }
+    } catch (error) {
+      console.warn('Não foi possível ler o tema salvo.');
+    }
+
+    return 'dark';
+  }
+
+  function applyTheme(theme, savePreference = true) {
+    const isLight = theme === 'light';
+
+    if (isLight) {
+      root.setAttribute('data-theme', 'light');
+    } else {
+      root.removeAttribute('data-theme');
+    }
+
+    if (themeIcon) {
+      themeIcon.textContent = isLight ? '☀️' : '🌙';
+    }
+
+    themeButton.setAttribute(
+      'aria-label',
+      isLight ? 'Ativar tema escuro' : 'Ativar tema claro'
+    );
+
+    themeButton.setAttribute('aria-pressed', String(isLight));
+
+    if (savePreference) {
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (error) {
+        console.warn('Não foi possível salvar a preferência de tema.');
+      }
+    }
+  }
+
+  // Aplica o tema antes de registrar a interação.
+  applyTheme(getSavedTheme(), false);
+
+  themeButton.addEventListener('click', () => {
+    const currentTheme =
+      root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+
+    applyTheme(currentTheme === 'light' ? 'dark' : 'light');
+  });
+}
+
+/* ============================================================
+   3. MENU RESPONSIVO
+   ============================================================ */
+
+function initMobileMenu() {
+  const menuButton = document.getElementById('menu-btn');
+  const navigation = document.getElementById('primary-nav');
+
+  if (!menuButton || !navigation) return;
+
+  const navLinks = navigation.querySelectorAll('.nav-link');
+
+  function setMenuState(isOpen) {
+    navigation.classList.toggle('open', isOpen);
+
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute(
+      'aria-label',
+      isOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'
+    );
+  }
+
+  // Garante um estado inicial consistente.
+  setMenuState(false);
+
+  menuButton.addEventListener('click', () => {
+    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+
+    setMenuState(!isOpen);
+  });
+
+  // Fecha o menu após selecionar uma seção.
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      setMenuState(false);
+    });
+  });
+
+  // Fecha o menu com a tecla Escape.
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setMenuState(false);
+      menuButton.focus();
+    }
+  });
+
+  // Fecha o menu ao clicar fora dele.
+  document.addEventListener('click', (event) => {
+    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+
+    if (
+      isOpen &&
+      !navigation.contains(event.target) &&
+      !menuButton.contains(event.target)
+    ) {
+      setMenuState(false);
+    }
+  });
+}
+
+/* ============================================================
+   4. FILTROS DA SEÇÃO DE PROJETOS
+   ============================================================ */
+
+function initProjectFilters() {
+  const filters = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  const emptyMessage = document.getElementById('projects-empty');
+
+  if (!filters.length || !projectCards.length) return;
+
+  filters.forEach((button) => {
+    button.addEventListener('click', () => {
+      const selectedFilter = button.dataset.filter || 'all';
+      let visibleCount = 0;
+
+      // Atualiza o estado visual e acessível dos filtros.
+      filters.forEach((filterButton) => {
+        const isActive = filterButton === button;
+
+        filterButton.classList.toggle('active', isActive);
+        filterButton.setAttribute('aria-pressed', String(isActive));
+      });
+
+      // Mostra apenas os projetos correspondentes.
+      projectCards.forEach((card) => {
+        const category = card.dataset.category;
+        const matches =
+          selectedFilter === 'all' || category === selectedFilter;
+
+        card.hidden = !matches;
+
+        if (matches) visibleCount++;
+      });
+
+      // Exibe uma mensagem caso não existam resultados.
+      if (emptyMessage) {
+        emptyMessage.hidden = visibleCount > 0;
+      }
+    });
+  });
+}
+
+/* ============================================================
+   5. VALIDAÇÃO DO FORMULÁRIO DE CONTATO
+   ============================================================ */
+
+function initFormValidation() {
+  const form = document.getElementById('contact-form');
+
+  if (!form) return;
+
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const consentInput = document.getElementById('lgpd-consent');
+  const statusElement = document.getElementById('form-status');
+
+  // Evita falhas caso a estrutura do formulário esteja incompleta.
+  if (
+    !nameInput ||
+    !emailInput ||
+    !messageInput ||
+    !consentInput
+  ) {
+    console.warn('Verifique os campos obrigatórios do formulário.');
+    return;
+  }
+
+  /**
+   * Valida o formato básico do e-mail.
+   * A confirmação definitiva depende do serviço de envio.
+   */
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  /**
+   * Atualiza o estado de validação do campo.
+   * Mantém compatibilidade com a classe .invalid do CSS.
+   */
+  function validateField(input, isValid) {
+    const group = input.closest('.form-group');
+
+    if (group) {
+      group.classList.toggle('invalid', !isValid);
+    }
+
+    input.setAttribute('aria-invalid', String(!isValid));
+
+    return isValid;
+  }
+
+  function validateName() {
+    return validateField(nameInput, nameInput.value.trim().length >= 3);
+  }
+
+  function validateEmail() {
+    return validateField(
+      emailInput,
+      isValidEmail(emailInput.value.trim())
+    );
+  }
+
+  function validateMessage() {
+    return validateField(
+      messageInput,
+      messageInput.value.trim().length >= 10
+    );
+  }
+
+  function validateConsent() {
+    return validateField(consentInput, consentInput.checked);
+  }
+
+  function showStatus(message, type) {
+    if (!statusElement) return;
+
+    statusElement.className = `form-status ${type}`;
+    statusElement.textContent = message;
+    statusElement.hidden = false;
+  }
+
+  // Validação durante o preenchimento.
+  nameInput.addEventListener('input', validateName);
+  emailInput.addEventListener('input', validateEmail);
+  messageInput.addEventListener('input', validateMessage);
+  consentInput.addEventListener('change', validateConsent);
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const isNameValid = validateName();
+    const isEmailValid = validateEmail();
+    const isMessageValid = validateMessage();
+    const isConsentValid = validateConsent();
+
+    const isFormValid =
+      isNameValid &&
+      isEmailValid &&
+      isMessageValid &&
+      isConsentValid;
+
+    if (!isFormValid) {
+      showStatus(
+        'Verifique os campos destacados e aceite o aviso de privacidade.',
+        'error'
+      );
+
+      // Leva o foco ao primeiro campo inválido.
+      const firstInvalidField = form.querySelector('[aria-invalid="true"]');
+
+      if (firstInvalidField) {
+        firstInvalidField.focus();
+      }
+
+      return;
+    }
+
+    /*
+     * IMPORTANTE:
+     * Esta validação não envia a mensagem para um servidor.
+     * Para realizar o envio real, conecte o formulário a um
+     * backend ou serviço de formulários confiável.
+     */
+    showStatus(
+      'Validação concluída! O formulário ainda precisa ser conectado a um serviço para enviar sua mensagem.',
+      'success'
+    );
+  });
+}
+
+/* ============================================================
+   6. ANO AUTOMÁTICO NO RODAPÉ
+   ============================================================ */
+
+function initCurrentYear() {
+  const yearElement = document.getElementById('current-year');
+
+  if (yearElement) {
+    yearElement.textContent = String(new Date().getFullYear());
+  }
+}

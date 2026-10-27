@@ -23,23 +23,8 @@
   <header class="header">
     <div class="container header-container">
       <a href="#home" class="logo" aria-label="Página inicial de Weverton Kauã">
-        &lt;WevertonKauã <span class="accent">/&gt;</span>
+          <span class="accent">WK</span>
       </a>
-
-      <div class="header-actions">
-        <!-- Botão Alternar Tema -->
-        <button id="theme-toggle" class="icon-btn" aria-label="Alternar entre modo claro e escuro">
-          <span id="theme-icon">🌙</span>
-        </button>
-
-        <!-- Botão Menu Hambúrguer -->
-        <button id="menu-btn" class="hamburger-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="primary-nav">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-      </div>
-
       <!-- Navegação Principal -->
       <nav id="primary-nav" class="nav-menu" aria-label="Navegação Principal">
         <ul>
@@ -54,6 +39,15 @@
     </div>
   </header>
 
+        <!-- Botão Menu Hambúrguer -->
+        <button id="menu-btn" class="hamburger-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="primary-nav">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+
+
   <!-- Conteúdo Principal -->
   <main id="main-content">
 
@@ -61,11 +55,10 @@
     <section id="home" class="hero-section">
       <div class="container hero-container">
         <div class="hero-text hero-copy">
-          <p id="dynamic-greeting" class="greeting-badge">Carregando saudação...</p>
           <h1 class="hero-title">
-            Olá, eu sou <span class="highlight">Weverton Kauã</span>
+           <span class="highlight">Web Desenvolvedor</span>
           </h1>
-          <h2 class="hero-subtitle">Desenvolvedor &amp; Estudante de Tecnologia</h2>
+          <h2 class="hero-subtitle">Desenvolvedor &amp; Estudante da  Tecnologia</h2>
           <p class="hero-description">
             Buscando minha primeira oportunidade de <strong>Estágio em TI</strong>. Focado na criação de código limpo, estruturas de dados eficientes, automação e interfaces web acessíveis.
           </p>
@@ -175,138 +168,278 @@
       </div>
     </section>
 
-    <!-- Seção Projetos -->
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section-title"><span class="accent">03.</span> Projetos Desenvolvidos</h2>
-        <p class="section-subtitle">Aplicações práticas e autorais criadas durante a minha jornada de estudos:</p>
+<!-- Seção: Projetos -->
+<section id="projects" class="section projects-section" aria-labelledby="projects-title">
+  <div class="container">
 
-        <!-- Filtros dos Projetos -->
-        <div class="project-filters">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="python">Python</button>
-          <button class="filter-btn" data-filter="web">HTML/CSS/JS</button>
+    <!-- Cabeçalho da seção -->
+    <header class="section-header">
+      <span class="section-eyebrow">
+        <span class="accent">03.</span> Meu trabalho
+      </span>
+
+      <h2 id="projects-title" class="section-title">
+        Projetos desenvolvidos<span class="accent">.</span>
+      </h2>
+
+      <p class="section-subtitle">
+        Projetos práticos que demonstram minha evolução em programação,
+        desenvolvimento web e resolução de problemas.
+      </p>
+    </header>
+
+    <!-- Filtros -->
+    <nav class="project-filters" aria-label="Filtrar projetos">
+
+      <button
+        type="button"
+        class="filter-btn active"
+        data-filter="all"
+        aria-pressed="true"
+      >
+        Todos
+      </button>
+
+      <button
+        type="button"
+        class="filter-btn"
+        data-filter="python"
+        aria-pressed="false"
+      >
+        Python
+      </button>
+
+      <button
+        type="button"
+        class="filter-btn"
+        data-filter="web"
+        aria-pressed="false"
+      >
+        Desenvolvimento Web
+      </button>
+
+    </nav>
+
+    <!-- Grade de projetos -->
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- Projeto 1 -->
+      <article class="project-card" data-category="python">
+
+        <div class="project-img-holder">
+          <img
+            src="img/projeto1.jpg"
+            alt="Prévia da aplicação de cálculos financeiros desenvolvida em Python"
+            class="project-image"
+            loading="lazy"
+            width="640"
+            height="360"
+          >
+
+          <span class="project-tag">Python</span>
         </div>
 
-        <div class="projects-grid">
-          <!-- Projeto 1 -->
-          <article class="project-card" data-category="python">
-            <div class="project-img-holder">
-              <img src="img/projeto1.jpg" alt="Preview da calculadora financeira em Python" onerror="this.src='https://via.placeholder.com/400x220/0f172a/38bdf8?text=Calculadora+Financeira+Python'">
-              <span class="project-tag">Python</span>
-            </div>
-            <div class="project-content">
-              <h3>Calculadora Financeira e Descontos</h3>
-              <p>
-                Script em Python desenvolvido para automatizar o cálculo de salários líquidos, deduções tributárias e simulador de rendimento e eficiência de combustível veicular.
-              </p>
-              <ul class="project-techs">
-                <li>Python 3</li>
-                <li>Lógica Math</li>
-                <li>Estruturas de Dados</li>
-              </ul>
-              <div class="project-links">
-                <a href="https://github.com/wkdospredio" target="_blank" rel="noopener noreferrer" class="btn-link">Repositório GitHub &rarr;</a>
-              </div>
-            </div>
-          </article>
+        <div class="project-content">
 
-          <!-- Projeto 2 -->
-          <article class="project-card" data-category="python">
-            <div class="project-img-holder">
-              <img src="img/projeto2.jpg" alt="Preview do gerenciador escolar em Python" onerror="this.src='https://via.placeholder.com/400x220/0f172a/38bdf8?text=Gerenciador+de+Alunos+Python'">
-              <span class="project-tag">Python</span>
-            </div>
-            <div class="project-content">
-              <h3>Gerenciador de Registros Acadêmicos</h3>
-              <p>
-                Sistema em Python para cadastro e gestão de registros de alunos utilizando estruturas de dicionários encadeados, com rotinas para cálculo de médias e verificação de situação.
-              </p>
-              <ul class="project-techs">
-                <li>Python</li>
-                <li>Dicionários</li>
-                <li>Coleções</li>
-              </ul>
-              <div class="project-links">
-                <a href="https://github.com/wkdospredio" target="_blank" rel="noopener noreferrer" class="btn-link">Repositório GitHub &rarr;</a>
-              </div>
-            </div>
-          </article>
+          <span class="project-number">PROJETO 01</span>
 
-          <!-- Projeto 3 -->
-          <article class="project-card" data-category="web">
-            <div class="project-img-holder">
-              <img src="img/projeto3.jpg" alt="Preview do Portfólio Profissional Web" onerror="this.src='https://via.placeholder.com/400x220/0f172a/38bdf8?text=Portf%C3%B3lio+Web+Puro'">
-              <span class="project-tag">HTML / CSS / JS</span>
-            </div>
-            <div class="project-content">
-              <h3>Portfólio Web Pessoal e Responsivo</h3>
-              <p>
-                Site interativo construído do zero com HTML5 semântico, CSS3 (Grid e Flexbox) e JavaScript puro, contando com alternador de temas, formulário seguro e acessibilidade total.
-              </p>
-              <ul class="project-techs">
-                <li>HTML5</li>
-                <li>CSS3 (Grid/Flex)</li>
-                <li>JavaScript Vanilla</li>
-              </ul>
-              <div class="project-links">
-                <a href="#home" class="btn-link">Ver Demonstração &rarr;</a>
-              </div>
-            </div>
-          </article>
+          <h3>Calculadora Financeira</h3>
+
+          <p>
+            Aplicação para realizar cálculos financeiros, simular
+            descontos e automatizar operações matemáticas do dia a dia.
+          </p>
+
+          <ul class="project-techs" aria-label="Tecnologias utilizadas">
+            <li>Python 3</li>
+            <li>Lógica de programação</li>
+            <li>Operações matemáticas</li>
+          </ul>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/wkdospredio"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-link"
+              aria-label="Consultar projetos no GitHub, em nova aba"
+            >
+              Ver no GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- Seção Diário de Bordo -->
-    <section id="journal" class="section bg-alt">
-      <div class="container">
-        <h2 class="section-title"><span class="accent">04.</span> Diário de Bordo</h2>
-        <p class="section-subtitle">Registro das etapas do processo de desenvolvimento individual do projeto:</p>
+      <!-- Projeto 2 -->
+      <article class="project-card" data-category="python">
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-badge">1</div>
-            <div class="timeline-content">
-              <h3>Etapa 1: Planejamento &amp; Esboço Wireframe</h3>
-              <p><strong>Atividade:</strong> Definição da estrutura semântica das seções (Cabeçalho, Início, Sobre Mim, Habilidades, Projetos, Contato e Rodapé) e planejamento visual dos componentes.</p>
-              <p><strong>Dificuldade:</strong> Organizar todas as informações de forma clara mantendo a acessibilidade.</p>
-              <p><strong>Solução:</strong> Separação em blocos bem definidos utilizando tags HTML5 semânticas e grid layout.</p>
-            </div>
+        <div class="project-img-holder">
+          <img
+            src="img/projeto2.jpg"
+            alt="Prévia do sistema de gerenciamento de registros acadêmicos"
+            class="project-image"
+            loading="lazy"
+            width="640"
+            height="360"
+          >
+
+          <span class="project-tag">Python</span>
+        </div>
+
+        <div class="project-content">
+
+          <span class="project-number">PROJETO 02</span>
+
+          <h3>Gerenciador Acadêmico</h3>
+
+          <p>
+            Sistema de gerenciamento de alunos com organização
+            de registros, cálculo de médias e verificação do
+            desempenho acadêmico.
+          </p>
+
+          <ul class="project-techs" aria-label="Tecnologias utilizadas">
+            <li>Python</li>
+            <li>Dicionários</li>
+            <li>Estruturas de dados</li>
+          </ul>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/wkdospredio"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-link"
+              aria-label="Consultar projetos no GitHub, em nova aba"
+            >
+              Ver no GitHub <span aria-hidden="true">↗</span>
+            </a>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-badge">2</div>
-            <div class="timeline-content">
-              <h3>Etapa 2: Estruturação do HTML Semântico</h3>
-              <p><strong>Atividade:</strong> Criação do arquivo <code>index.html</code> com tags adequadas e atributos ARIA.</p>
-              <p><strong>Dificuldade:</strong> Garantir que a estrutura fosse compreensível para leitores de tela sem redundâncias.</p>
-              <p><strong>Solução:</strong> Adição de atalho para o conteúdo principal, <code>aria-labels</code> e textos alternativos descritivos em todas as imagens.</p>
-            </div>
+        </div>
+      </article>
+
+      <!-- Projeto 3 -->
+      <article class="project-card" data-category="web">
+
+        <div class="project-img-holder">
+          <img
+            src="img/projeto3.jpg"
+            alt="Prévia visual do portfólio pessoal de desenvolvimento web"
+            class="project-image"
+            loading="lazy"
+            width="640"
+            height="360"
+          >
+
+          <span class="project-tag">Front-end</span>
+        </div>
+
+        <div class="project-content">
+
+          <span class="project-number">PROJETO 03</span>
+
+          <h3>Portfólio Profissional</h3>
+
+          <p>
+            Site responsivo para apresentar meus projetos,
+            habilidades e informações profissionais, com
+            navegação interativa e alternância de tema.
+          </p>
+
+          <ul class="project-techs" aria-label="Tecnologias utilizadas">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+          </ul>
+
+          <div class="project-links">
+            <a
+              href="#home"
+              class="btn-link"
+              aria-label="Voltar ao início do portfólio"
+            >
+              Ver portfólio <span aria-hidden="true">↗</span>
+            </a>
           </div>
 
-          <div class="timeline-item">
-            <div class="timeline-badge">3</div>
-            <div class="timeline-content">
-              <h3>Etapa 3: Estilização com CSS3, Flexbox &amp; Grid</h3>
-              <p><strong>Atividade:</strong> Criação das regras em <code>css/style.css</code>, aplicando design responsivo, variáveis CSS para tema Claro/Escuro e animações.</p>
-              <p><strong>Dificuldade:</strong> Manter a leitura e o contraste adequados em ambos os temas (Dark/Light Mode).</p>
-              <p><strong>Solução:</strong> Uso de variáveis no <code>:root</code> e verificação das cores via diretrizes do WCAG de contraste de cores.</p>
-            </div>
-          </div>
+        </div>
+      </article>
 
-          <div class="timeline-item">
-            <div class="timeline-badge">4</div>
-            <div class="timeline-content">
-              <h3>Etapa 4: Interatividade com JavaScript Puro</h3>
-              <p><strong>Atividade:</strong> Desenvolvimento das funções do menu hambúrguer, saudação baseada no horário, alternador de temas, persistência no <code>localStorage</code> e validações de formulário.</p>
-              <p><strong>Dificuldade:</strong> Tratar as validações em tempo real e o consentimento de dados sem o uso de bibliotecas de terceiros.</p>
-              <p><strong>Solução:</strong> Manipulação de eventos nativos como <code>input</code>, <code>submit</code> e escuta dos checkboxes com feedback imediato ao usuário.</p>
+    </div>
+
+    <!-- Mensagem para filtros sem resultados -->
+    <p
+      id="projects-empty"
+      class="projects-empty"
+      hidden
+      aria-live="polite"
+    >
+      Nenhum projeto encontrado nesta categoria.
+    </p>
+
+    <!-- Chamada para contato -->
+    <div class="projects-cta">
+      <p>Quer conhecer outros projetos ou conversar sobre tecnologia?</p>
+
+      <a href="#contact" class="btn-link">
+        Entre em contato <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+      <!-- Seção Diário de Bordo -->
+      <section id="journal" class="section bg-alt">
+        <div class="container">
+          <h2 class="section-title"><span class="accent">04.</span> Diário de Bordo</h2>
+          <p class="section-subtitle">Registro das etapas do processo de desenvolvimento individual do projeto:</p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-badge">1</div>
+              <div class="timeline-content">
+                <h3>Etapa 1: Planejamento &amp; Esboço Wireframe</h3>
+                <p><strong>Atividade:</strong> Definição da estrutura semântica das seções (Cabeçalho, Início, Sobre Mim, Habilidades, Projetos, Contato e Rodapé) e planejamento visual dos componentes.</p>
+                <p><strong>Dificuldade:</strong> Organizar todas as informações de forma clara mantendo a acessibilidade.</p>
+                <p><strong>Solução:</strong> Separação em blocos bem definidos utilizando tags HTML5 semânticas e grid layout.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-badge">2</div>
+              <div class="timeline-content">
+                <h3>Etapa 2: Estruturação do HTML Semântico</h3>
+                <p><strong>Atividade:</strong> Criação do arquivo <code>index.html</code> com tags adequadas e atributos ARIA.</p>
+                <p><strong>Dificuldade:</strong> Garantir que a estrutura fosse compreensível para leitores de tela sem redundâncias.</p>
+                <p><strong>Solução:</strong> Adição de atalho para o conteúdo principal, <code>aria-labels</code> e textos alternativos descritivos em todas as imagens.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-badge">3</div>
+              <div class="timeline-content">
+                <h3>Etapa 3: Estilização com CSS3, Flexbox &amp; Grid</h3>
+                <p><strong>Atividade:</strong> Criação das regras em <code>css/style.css</code>, aplicando design responsivo, variáveis CSS para tema Claro/Escuro e animações.</p>
+                <p><strong>Dificuldade:</strong> Manter a leitura e o contraste adequados em ambos os temas (Dark/Light Mode).</p>
+                <p><strong>Solução:</strong> Uso de variáveis no <code>:root</code> e verificação das cores via diretrizes do WCAG de contraste de cores.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-badge">4</div>
+              <div class="timeline-content">
+                <h3>Etapa 4: Interatividade com JavaScript Puro</h3>
+                <p><strong>Atividade:</strong> Desenvolvimento das funções do menu hambúrguer, saudação baseada no horário, alternador de temas, persistência no <code>localStorage</code> e validações de formulário.</p>
+                <p><strong>Dificuldade:</strong> Tratar as validações em tempo real e o consentimento de dados sem o uso de bibliotecas de terceiros.</p>
+                <p><strong>Solução:</strong> Manipulação de eventos nativos como <code>input</code>, <code>submit</code> e escuta dos checkboxes com feedback imediato ao usuário.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <!-- Seção Contato -->
     <section id="contact" class="section">
